@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>scroll to section in div</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style type="text/css">
+	.container {
+	    max-width: 1230px;
+	    padding: 0 15px;
+	    margin: 0 auto;
+	    display: block;
+        box-sizing: border-box;
+    	outline: 0 none
+	}
+.section_three.grup .wrapper .left {
+	flex: 0 0 30%;
+    text-align: left;
+}
+.section_three.grup .wrapper .right {
+    height: 602px;
+    overflow-y: scroll;
+    padding-right: 20px;
+    position: relative;
+    padding-bottom: 87px;
+}
+    .section_three.grup .wrapper {
+        position: relative;
+    }
+
+    .section_three.grup .wrapper:after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 2px;
+        width: 1px;
+        background: #F6F7F8;
+        height: 402px;
+        z-index: -1;
+    }
+
+    .section_three.grup .wrapper .right .tab-content .item h2 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 120%;
+        color: #A9AFB3;
+        padding-bottom: 15px;
+    }
+
+    .section_three.grup .wrapper .right .tab-content .item {
+        border-bottom: 1px solid #F6F7F8;
+        min-height: 132px;
+    }
+
+    .section_three.grup .wrapper .right .tab-content.active .item {
+        padding-bottom: 30px;
+        min-height: 183px;
+    }
+
+    .section_three.grup .wrapper .right .tab-content.active .item h2 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 50px;
+        color: #00CC48;
+        padding-bottom: 20px;
+    }
+
+    .section_three.grup .wrapper .right::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    .section_three.grup .wrapper .right::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    .section_three.grup .wrapper .right::-webkit-scrollbar-thumb {
+        background: #00CC48;
+        border-radius: 50px;
+    }
+
+    .global_tabs .tabs_mobile {
+        display: none;
+    }
+
+    .section_three.grup .left ul li .tabs-content.mobile {
+        display: none;
+    }
+    
+    .section_three.grup .description p{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 140%;
+	color: #414141;
+}
+
+.section_three.grup .wrapper{
+	padding-top: 60px;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+
+.section_three.grup .left ul li{
+	list-style: none;
+	padding: 10px 0px;
+	padding-left: 30px;
+}
+
+.section_three.grup .left ul li.active:first-child{
+	margin-top: 0;
+}
+.section_three.grup .left ul li.active{
+	padding: 24px 0px;
+	padding-left: 30px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.section_three.grup .left ul li a{
+	text-decoration: none;
+	display: block;
+}
+
+.section_three.grup .left ul li a{
+	display: flex;
+	flex-flow: row;
+	align-items:center;
+}
+
+.section_three.grup .left ul li a span.text{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 120%;
+	color: #A9AFB3;
+	padding-left: 10px;
+	flex: 0 0 91%;
+}
+
+.section_three.grup .left ul li a span.icon{
+	height: 32px;
+	background: #F6F7F8;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 32px;
+	
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	color: #00CC48;
+	flex: 0 0 9%;
+}
+
+.section_three.grup .left ul li.active a span.icon{
+	background: #00CC48;
+	color: #FFFFFF;
+}
+
+.section_three.grup .left ul li.active a span.text{
+	font-weight: 700;
+	font-size: 20px;
+	color: #414141;
+}
+
+.section_three.grup .left ul li.active{
+	background: #F6F7F8;
+	border-radius: 20px 0px 0px 20px;
+}
+
+.section_three.grup .wrapper .right{
+	flex: 0 0 68%;
+	text-align: left;
+}
+
+.section_three.grup .wrapper .right .tab-content .item{
+	padding: 15px 40px;
+	padding-left: 32px;
+}
+
+.section_three.grup .wrapper .right .tab-content.active{
+	background: #F6F7F8;
+	border-radius: 0px 20px 20px 20px;
+	margin-bottom: 10px;
+	width: 100%;
+	position: relative;
+}
+
+.section_three.grup .wrapper .right .tab-content.active:after{
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: #ffffff;
+}
+
+.section_three.grup .wrapper .right .tab-content .item p{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 140%;
+	color: #414141;
+}
+
+.section_three.grup .wrapper .right{
+	height: 602px;
+	overflow-y: scroll;
+	padding-right: 20px;
+	position: relative;
+	padding-bottom: 87px;
+}
+
+.section_three.grup .wrapper .right .tabs-content{
+	display: flex;
+	flex-flow: row wrap;
+}
+
+/*
+.section_three.grup .wrapper .right .tabs-content .tab-content.active{
+	order: 1 !important;
+}
+
+.section_three.grup .wrapper .right .tabs-content .tab-content{
+	order: 2;
+} */
+
+.section_three.grup .wrapper{
+	position: relative;
+}
+
+.section_three.grup .wrapper:after{
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 2px;
+	width: 1px; 
+	background: #F6F7F8;
+	height: 402px;
+	z-index: -1;
+}
+
+.section_three.grup .wrapper .right .tab-content .item h2{
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 120%;
+	color: #A9AFB3;
+	padding-bottom: 15px;
+}
+
+.section_three.grup .wrapper .right .tab-content .item{
+	border-bottom: 1px solid #F6F7F8;
+	min-height: 132px;
+}
+.section_three.grup .wrapper .right .tab-content.active .item{
+	padding-bottom: 30px;
+	min-height: 183px;
+}
+.section_three.grup .wrapper .right .tab-content.active .item h2{
+	font-style: normal;
+	font-weight: 700;
+	font-size: 25px;
+	line-height: 50px;
+	color: #00CC48;
+	padding-bottom: 20px;
+}
+
+    @media only screen and (max-width: 1060px) {
+        .global_tabs .tabs {
+            display: none;
+        }
+
+        .global_tabs .tabs_mobile {
+            display: block;
+        }
+
+        .global_tabs .tabs_mobile ul li .tabs-content {
+            display: none;
+        }
+
+        .global_tabs .tabs_mobile ul li {
+            display: block;
+            padding-bottom: 10px;
+        }
+
+        .global_tabs ul {
+            display: block;
+        }
+
+        .global_tabs ul li a {
+            padding: 14px 0px;
+        }
+
+        .global_tabs .tabs_mobile ul li.active .tabs-content {
+            display: block;
+        }
+
+        .global_tabs .tabs_mobile ul li:nth-child(1).active .tabs-content .tab-content:nth-child(1) {
+            display: block !important;
+        }
+
+        .global_tabs .tabs_mobile ul li:nth-child(2).active .tabs-content .tab-content:nth-child(2) {
+            display: block !important;
+        }
+
+        .global_tabs .tabs_mobile ul li:nth-child(3).active .tabs-content .tab-content:nth-child(3) {
+            display: block !important;
+        }
+
+        .global_tabs .tabs_mobile ul li:nth-child(4).active .tabs-content .tab-content:nth-child(4) {
+            display: block !important;
+        }
+
+        .global_tabs ul li.active a:before {
+            display: none;
+        }
+
+        .global_tabs ul li.active a {
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 10px 10px 0px 0px;
+        }
+
+        .global_tabs ul li.active {
+            margin-top: 10px;
+        }
+
+        .global_tabs .tabs-content .item .right a {
+            padding: 0;
+            box-shadow: none;
+            line-height: initial;
+            border-bottom: 0;
+            font-weight: normal;
+        }
+
+        .global_tabs .tabs-content .item .left {
+            flex: 0 0 100%;
+        }
+
+        .global_tabs .tabs-content .item .right {
+            flex: 0 0 100%;
+            padding: 0;
+            padding-top: 12px;
+        }
+
+        .global_tabs .tabs-content {
+            padding: 30px 10px;
+        }
+
+        .global_tabs .tabs-content .item .right h2 {
+            font-size: 20px;
+            line-height: 30px;
+            padding-bottom: 20px;
+        }
+
+        .section_two.grup .title {
+            padding-bottom: 20px;
+        }
+
+        .global_tabs .tabs-content .item .right .content ul li,
+        .global_tabs .tabs-content .item .right p {
+            font-size: 14px;
+        }
+
+        .global_tabs .tabs-content .item .right .content {
+            padding: 0 10px;
+        }
+
+        .section_three.grup .left ul li .tabs-content.mobile {
+            display: block;
+        }
+
+        .section_three.grup .left ul li .tabs-content.mobile .tab-content {
+            display: none;
+        }
+
+        .section_three.grup .wrapper .right {
+            display: none;
+        }
+
+        .section_three.grup .wrapper .left {
+            flex: 0 0 100%;
+        }
+
+        .section_three.grup .wrapper .left li .tabs-content.mobile .tab-content:first-child {
+            display: none !important;
+        }
+
+        .section_three.grup .wrapper .left li:first-child.active .tabs-content.mobile .tab-content:first-child {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(2).active .tabs-content.mobile .tab-content:nth-child(2) {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(3).active .tabs-content.mobile .tab-content:nth-child(3) {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(4).active .tabs-content.mobile .tab-content:nth-child(4) {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(5).active .tabs-content.mobile .tab-content:nth-child(5) {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(6).active .tabs-content.mobile .tab-content:nth-child(6) {
+            display: block !important;
+        }
+
+        .section_three.grup .wrapper .left li:nth-child(7).active .tabs-content.mobile .tab-content:nth-child(7) {
+            display: block !important;
+        }
+
+        .section_three.grup .left ul li .tabs-content.mobile .item h2 {
+            display: none;
+        }
+
+        .section_three.grup .left ul li .tabs-content.mobile .item p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+            padding-top: 40px;
+            color: #414141;
+
+        }
+
+        .section_three.grup .left ul li.active {
+            padding: 20px;
+            padding-bottom: 30px;
+        }
+
+        .section_three.grup .left ul li.active {
+            border-radius: 10px;
+        }
+
+        .section_three.grup .wrapper:after {
+            display: none;
+        }
+
+        .section_three.grup .left ul li.active a {
+            box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+            border-radius: 10px 10px 0px 0px;
+            margin: -20px;
+            padding: 20px;
+        }
+
+        .section_three.grup .title:after {
+            display: none;
+        }
+
+        .global_tabs .grid {
+            display: none;
+        }
+
+        .global_tabs .grid:first-child {
+            display: block;
+        }
+    }
+    </style>
+</head>
+
+<body>
+<div class="container ">
+	<section id="section_three" class="section_three grup scrollable">
+	    <div class="wrapper">
+	        <div class="left">
+	            <div class="tabs">
+	                <ul class="tabs-nav">
+	                    <li class="">
+	                        <a href="#Înțelegemclientul">
+	                            <span class="icon">
+	                                1 </span>
+	                            <span class="text">
+	                                Înțelegem clientul </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="">
+	                        <a href="#Gândimcaunantreprenordesucces">
+	                            <span class="icon">
+	                                2 </span>
+	                            <span class="text">
+	                                Gândim ca un antreprenor de succes </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="">
+	                        <a href="#Luămdeciziibazatepedate">
+	                            <span class="icon">
+	                                3 </span>
+	                            <span class="text">
+	                                Luăm decizii bazate pe date </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li>
+	                        <a href="#Evaluămimpactulproiectelornoastre">
+	                            <span class="icon">
+	                                4 </span>
+	                            <span class="text">
+	                                Evaluăm impactul proiectelor noastre </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="">
+	                        <a href="#Acționămresponsabil">
+	                            <span class="icon">
+	                                5 </span>
+	                            <span class="text">
+	                                Acționăm responsabil </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="">
+	                        <a href="#Nesusținemreciproc">
+	                            <span class="icon">
+	                                6 </span>
+	                            <span class="text">
+	                                Ne susținem reciproc </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                    <li class="active">
+	                        <a href="#Creștemîmpreunăcubusiness-ul">
+	                            <span class="icon">
+	                                7 </span>
+	                            <span class="text">
+	                                Creștem împreună cu business-ul </span>
+	                        </a>
+	                        <div class="tabs-content mobile">
+	                            <div id="Înțelegemclientul" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Înțelegem clientul</h2>
+	                                    <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Gândim ca un antreprenor de succes</h2>
+	                                    <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Luămdeciziibazatepedate" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Luăm decizii bazate pe date</h2>
+	                                    <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                                </div>
+	                            </div>
+	                            <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Evaluăm impactul proiectelor noastre</h2>
+	                                    <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Acționămresponsabil" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Acționăm responsabil</h2>
+	                                    <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Nesusținemreciproc" class="tab-content">
+	                                <div class="item">
+	                                    <h2>Ne susținem reciproc</h2>
+	                                    <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                                </div>
+	                            </div>
+	                            <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                                <div class="item">
+	                                    <h2>Creștem împreună cu business-ul</h2>
+	                                    <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </li>
+	                </ul>
+	            </div>
+	        </div>
+	        <div class="right">
+	            <div class="tabs-content">
+	                <div id="Înțelegemclientul" class="tab-content">
+	                    <div class="item">
+	                        <h2>Înțelegem clientul</h2>
+	                        <p>Nu ne oprim niciodată din a căuta să îndeplinim fiecare promisiune pe care o facem, atât clienților, cât și partenerilor sau colegilor noștri. Înțelegem nevoile tuturor celor cu care lucrăm și suntem constant preocupați să fie din ce în ce mai mulțumiți de noi. </p>
+	                    </div>
+	                </div>
+	                <div id="Gândimcaunantreprenordesucces" class="tab-content">
+	                    <div class="item">
+	                        <h2>Gândim ca un antreprenor de succes</h2>
+	                        <p>Iar asta ne ajută să nu ne oprim din a seta obiective ambițioase, a depăși obstacolele atunci când ele apar și a obține tot ce ne-am propus. </p>
+	                    </div>
+	                </div>
+	                <div id="Luămdeciziibazatepedate" class="tab-content">
+	                    <div class="item">
+	                        <h2>Luăm decizii bazate pe date</h2>
+	                        <p>Pentru că avem acces la atât de multe date, e important să știm, înainte de a lua decizii, ce ne spun ele și să ne uităm la un proiect din toate perspectivele.</p>
+	                    </div>
+	                </div>
+	                <div id="Evaluămimpactulproiectelornoastre" class="tab-content">
+	                    <div class="item">
+	                        <h2>Evaluăm impactul proiectelor noastre</h2>
+	                        <p>Nu facem lucruri fără să căutam de la început răspunsul la întrebarea "cum măsurăm succesul?". Asta ne ajuta să știm să evaluăm corect impactul lui la final, ce a funcționat și unde am greșit, ce să evităm în viitor. </p>
+	                    </div>
+	                </div>
+	                <div id="Acționămresponsabil" class="tab-content">
+	                    <div class="item">
+	                        <h2>Acționăm responsabil</h2>
+	                        <p>Nu ne oprim din a analiza posibilele efecte ale deciziilor noastre și ne asumăm rezultatele, fie că e vorba de un succes, fie de un eșec. </p>
+	                    </div>
+	                </div>
+	                <div id="Nesusținemreciproc" class="tab-content">
+	                    <div class="item">
+	                        <h2>Ne susținem reciproc</h2>
+	                        <p>Facem parte din aceeași echipă, e rolul fiecăruia dintre noi să o ajute să câștige. </p>
+	                    </div>
+	                </div>
+	                <div id="Creștemîmpreunăcubusiness-ul" class="tab-content active">
+	                    <div class="item">
+	                        <h2>Creștem împreună cu business-ul</h2>
+	                        <p>Nu ne oprim din a cauta să învățăm continuu din tot ce facem, în felul ăsta putem intui oportunitățile, putem inova și astfel devenim din ce în ce mai buni.</p>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    
+	</section>
+</div>
+    <script type="text/javascript">
+    jQuery(function(){
+	$('.global_tabs .tabs-nav li:first-child').addClass('active');
+	$('.global_tabs .tab-content').hide();
+	$('.global_tabs .tab-content:first-child').show();
+	$('.global_tabs .tab-content:first-child').addClass('active');
+	
+	// Click function
+	$('.global_tabs .tabs-nav li').click(function(){
+	  $('.global_tabs .tabs-nav li').removeClass('active');
+	  $(this).addClass('active');
+	  $('.global_tabs .tab-content').hide();
+	  
+	  var activeTab = $(this).find('a').attr('href');
+	  $(activeTab).fadeIn();
+	  $(activeTab).addClass('active');
+	  return false;
+	});
+	
+	if (window.matchMedia("(min-width: 1069px)").matches) {
+		$('.scrollable .tabs-nav li:first-child').addClass('active');
+		$('.scrollable .tab-content:first-child').show();
+		$('.scrollable .tab-content:first-child').addClass('active');
+		
+		// Click function
+		$('.scrollable .tabs-nav li').click(function(){
+		  $('.scrollable .tabs-nav li').removeClass('active');
+		 
+		  $(this).addClass('active');
+		  $('.scrollable .tab-content').removeClass('active');
+		  
+		  
+		  var activeTab = $(this).find('a').attr('href');
+		  $(activeTab).fadeIn();
+		  $(activeTab).addClass('active');
+		  
+		  //var top = $('.wrapper .left ul li.active').position().top;	
+		  //var scroll = $('.section_three.grup .wrapper .right .tabs-content div.active').position().top;	
+		  	  
+		  //$('.section_three.grup .wrapper .right').scrollTop(top); 
+		  //console.log(top);
+		 // console.log(scroll); 
+		  
+		  
+		  
+		  return false;
+		});
+		
+		$('.scrollable .tabs-nav li:first').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(0); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(2)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(71); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(3)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(151); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(4)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(231); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(5)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(311); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(6)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(391); 
+		});
+		
+		$('.scrollable .tabs-nav li:nth-child(7)').click(function(){
+			$('.section_three.grup .wrapper .right').scrollTop(476); 
+		});
+	}
+	
+
+});
+    </script>
+</body>
+
+</html>
